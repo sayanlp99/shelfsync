@@ -1,7 +1,6 @@
-// signup_page.dart
 import 'package:flutter/material.dart';
+import 'package:shelfsync/main/main_page.dart';
 import 'auth_controller.dart';
-import '../dashboard_page.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -28,7 +27,7 @@ class _SignUpPageState extends State<SignUpPage> {
       if (_authController.isAuthenticated && mounted) {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (_) => const DashboardPage()),
+          MaterialPageRoute(builder: (_) => const MainPage()),
         );
       }
     } catch (e) {

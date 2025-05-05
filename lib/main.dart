@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
+import 'package:shelfsync/main/main_page.dart';
 import 'package:shelfsync/theme/shelf_sync_theme.dart';
 import 'auth/login_page.dart';
-import 'dashboard_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
       theme: lightTheme,
       darkTheme: darkTheme,
       themeMode: ThemeMode.system,
-      home: isLoggedIn ? const DashboardPage() : const LoginPage(),
+      home: isLoggedIn ? const MainPage() : const LoginPage(),
     );
   }
 }

@@ -1,8 +1,7 @@
-// login_page.dart
 import 'package:flutter/material.dart';
+import 'package:shelfsync/main/main_page.dart';
 import 'auth_controller.dart';
 import 'signup_page.dart';
-import '../dashboard_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -28,7 +27,7 @@ class _LoginPageState extends State<LoginPage> {
         if (!mounted) return;
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (_) => const DashboardPage()),
+          MaterialPageRoute(builder: (_) => const MainPage()),
         );
       }
     } catch (e) {
@@ -66,6 +65,7 @@ class _LoginPageState extends State<LoginPage> {
               controller: _usernameController,
               decoration: const InputDecoration(labelText: 'Username'),
             ),
+            const SizedBox(height: 8),
             TextField(
               controller: _passwordController,
               decoration: const InputDecoration(labelText: 'Password'),
