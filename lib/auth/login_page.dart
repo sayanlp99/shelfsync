@@ -32,14 +32,16 @@ class _LoginPageState extends State<LoginPage> {
         );
       }
     } catch (e) {
-      showDialog(
-        context: context,
-        builder:
-            (_) => AlertDialog(
-              title: const Text('Login Failed'),
-              content: Text(e.toString()),
-            ),
-      );
+      if (mounted) {
+        showDialog(
+          context: context,
+          builder:
+              (_) => AlertDialog(
+                title: const Text('Login Failed'),
+                content: Text(e.toString()),
+              ),
+        );
+      }
     } finally {
       if (mounted) setState(() => _isLoading = false);
     }

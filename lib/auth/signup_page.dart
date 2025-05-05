@@ -25,21 +25,23 @@ class _SignUpPageState extends State<SignUpPage> {
         _passwordController.text.trim(),
         _emailController.text.trim(),
       );
-      if (_authController.isAuthenticated) {
+      if (_authController.isAuthenticated && mounted) {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (_) => const DashboardPage()),
         );
       }
     } catch (e) {
-      showDialog(
-        context: context,
-        builder:
-            (_) => AlertDialog(
-              title: const Text('Signup Failed'),
-              content: Text(e.toString()),
-            ),
-      );
+      if (mounted) {
+        showDialog(
+          context: context,
+          builder:
+              (_) => AlertDialog(
+                title: const Text('Signup Failed'),
+                content: Text(e.toString()),
+              ),
+        );
+      }
     } finally {
       if (mounted) setState(() => _isLoading = false);
     }
