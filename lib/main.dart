@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
+import 'package:provider/provider.dart';
+import 'package:shelfsync/inventory/inventory_controller.dart';
 import 'package:shelfsync/main/main_page.dart';
 import 'package:shelfsync/theme/shelf_sync_theme.dart';
 import 'auth/login_page.dart';
@@ -26,7 +28,12 @@ void main() async {
         currentUser.sessionToken!,
       ))!.success;
 
-  runApp(MyApp(isLoggedIn: sessionIsValid));
+  runApp(
+    MultiProvider(
+      providers: [ChangeNotifierProvider(create: (_) => InventoryController())],
+      child: MyApp(isLoggedIn: sessionIsValid),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
