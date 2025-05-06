@@ -19,13 +19,13 @@ class InventoryItem {
 
   factory InventoryItem.fromParse(Map<String, dynamic> data) {
     return InventoryItem(
-      id: data['objectId'],
+      id: data['objectId'] ?? '',
       productName: data['productName'],
       category: data['category'],
-      price: data['price'].toDouble(),
-      units: data['units'],
+      price: (data['price'] ?? 0).toDouble(),
+      units: data['units'] ?? 0,
       dateTime: DateTime.parse(data['dateTime']),
-      uploader: data['uploader'],
+      uploader: data['uploader'] ?? '',
     );
   }
 
