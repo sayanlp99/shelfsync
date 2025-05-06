@@ -33,4 +33,8 @@ class InventoryController extends ChangeNotifier {
     await _service.deleteItem(id);
     await fetchItems();
   }
+
+  Future<String?> getUsername() async {
+    return await _service.getUsername();
+  }
 }

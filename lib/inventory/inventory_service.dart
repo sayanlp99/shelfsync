@@ -45,4 +45,13 @@ class InventoryService {
       throw Exception('Failed to delete item');
     }
   }
+
+  Future<String?> getUsername() async {
+    final user = await ParseUser.currentUser() as ParseUser?;
+    if (user != null) {
+      return user.username;
+    } else {
+      throw Exception('No user logged in');
+    }
+  }
 }

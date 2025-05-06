@@ -5,7 +5,7 @@ import 'package:shelfsync/inventory/inventory_controller.dart';
 import 'package:shelfsync/inventory/inventory_model.dart';
 
 class InventoryFormPage extends StatefulWidget {
-  final InventoryItem? item; // if null => add, else => edit
+  final InventoryItem? item;
 
   const InventoryFormPage({super.key, this.item});
 
@@ -51,8 +51,8 @@ class _InventoryFormPageState extends State<InventoryFormPage> {
     super.dispose();
   }
 
-  void _submit() async {
-    if (!mounted) return; // Prevents context access if widget is disposed
+  Future<void> _submit() async {
+    if (!mounted) return;
     final controller = context.read<InventoryController>();
 
     final product = InventoryItem(
@@ -62,7 +62,7 @@ class _InventoryFormPageState extends State<InventoryFormPage> {
       price: double.tryParse(_priceController.text) ?? 0,
       units: int.tryParse(_unitsController.text) ?? 0,
       dateTime: _selectedDate,
-      uploader: 'Test',
+      uploader: await controller.getUsername() ?? '',
     );
 
     if (widget.item == null) {
