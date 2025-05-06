@@ -31,6 +31,7 @@ class _MainPageState extends State<MainPage> {
     );
   }
 
+  final List<String> _titles = ['Dashboard', 'POS', 'Inventory'];
   final List<Widget> _pages = [DashboardPage(), PosPage(), InventoryPage()];
 
   void _onItemTapped(int index) {
@@ -41,6 +42,7 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: Text(_titles[_selectedIndex]),
         backgroundColor: Colors.transparent,
         elevation: 0,
         actions: [

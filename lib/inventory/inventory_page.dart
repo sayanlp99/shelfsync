@@ -8,64 +8,65 @@ class InventoryPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => InventoryController()..fetchItems(),
-      child: Scaffold(
-        appBar: AppBar(title: const Text('Inventory')),
-        body: Consumer<InventoryController>(
-          builder: (context, controller, _) {
-            if (controller.isLoading) {
-              return const Center(child: CircularProgressIndicator());
-            }
-            return ListView.builder(
-              itemCount: controller.items.length,
-              itemBuilder: (context, index) {
-                final item = controller.items[index];
-                return ListTile(
-                  title: Text(item.productName),
-                  subtitle: Text('${item.category} - ${item.units} pcs'),
-                  trailing: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      IconButton(
-                        icon: const Icon(Icons.edit),
-                        onPressed: () async {
-                          final result = await Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) => InventoryFormPage(item: item),
-                            ),
-                          );
-                          if (result == true) {
-                            controller.fetchItems();
-                          }
-                        },
-                      ),
-                      IconButton(
-                        icon: const Icon(Icons.delete),
-                        onPressed: () {
-                          controller.deleteItem(item.id);
-                        },
-                      ),
-                    ],
-                  ),
-                );
-              },
-            );
-          },
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () async {
-            final controller = context.read<InventoryController>();
-            final result = await Navigator.push(
-              context,
-              MaterialPageRoute(builder: (_) => const InventoryFormPage()),
-            );
-            if (result == true) {
-              controller.fetchItems();
-            }
-          },
-          child: const Icon(Icons.add),
+    return SafeArea(
+      child: ChangeNotifierProvider(
+        create: (_) => InventoryController()..fetchItems(),
+        child: Scaffold(
+          body: Consumer<InventoryController>(
+            builder: (context, controller, _) {
+              if (controller.isLoading) {
+                return const Center(child: CircularProgressIndicator());
+              }
+              return ListView.builder(
+                itemCount: controller.items.length,
+                itemBuilder: (context, index) {
+                  final item = controller.items[index];
+                  return ListTile(
+                    title: Text(item.productName),
+                    subtitle: Text('${item.category} - ${item.units} pcs'),
+                    trailing: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        IconButton(
+                          icon: const Icon(Icons.edit),
+                          onPressed: () async {
+                            final result = await Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => InventoryFormPage(item: item),
+                              ),
+                            );
+                            if (result == true) {
+                              controller.fetchItems();
+                            }
+                          },
+                        ),
+                        IconButton(
+                          icon: const Icon(Icons.delete),
+                          onPressed: () {
+                            controller.deleteItem(item.id);
+                          },
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              );
+            },
+          ),
+          floatingActionButton: FloatingActionButton(
+            onPressed: () async {
+              final controller = context.read<InventoryController>();
+              final result = await Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const InventoryFormPage()),
+              );
+              if (result == true) {
+                controller.fetchItems();
+              }
+            },
+            child: const Icon(Icons.add),
+          ),
         ),
       ),
     );
