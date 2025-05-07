@@ -5,7 +5,7 @@ import 'package:shelfsync/pos/pos_controller.dart';
 import 'package:shelfsync/pos/pos_model.dart';
 
 class PosPage extends StatefulWidget {
-  const PosPage({Key? key}) : super(key: key);
+  const PosPage({super.key});
 
   @override
   State<PosPage> createState() => _PosPageState();
@@ -37,13 +37,14 @@ class _PosPageState extends State<PosPage> {
               decoration: const InputDecoration(labelText: "Customer Name"),
               onChanged: (val) => controller.customerName = val,
             ),
+            const SizedBox(height: 8),
             TextField(
               controller: _customerNumberController,
               decoration: const InputDecoration(labelText: "Customer Number"),
               keyboardType: TextInputType.phone,
               onChanged: (val) => controller.customerNumber = val,
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 8),
             Autocomplete(
               optionsBuilder: (TextEditingValue textEditingValue) {
                 controller.updateSearch(textEditingValue.text);
@@ -143,7 +144,7 @@ class _PosPageState extends State<PosPage> {
             MaterialPageRoute(builder: (_) => const OrderListPage()),
           );
         },
-        child: const Icon(Icons.clear),
+        child: const Icon(Icons.list),
       ),
     );
   }
