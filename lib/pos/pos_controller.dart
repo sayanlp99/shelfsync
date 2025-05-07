@@ -93,6 +93,13 @@ class PosController extends ChangeNotifier {
     );
 
     await _posService.createOrder(order);
+    // remove number of unit from inventory
+    for (var item in cartItems) {
+      await _inventoryService.updateItemUnits(
+        item.item.id,
+        item.item.units - item.quantity,
+      );
+    }
     cartItems.clear();
     customerName = '';
     customerNumber = '';

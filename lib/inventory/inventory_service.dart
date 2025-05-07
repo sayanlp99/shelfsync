@@ -38,6 +38,15 @@ class InventoryService {
     }
   }
 
+  Future<void> updateItemUnits(String id, int units) async {
+    final parseObject = ParseObject(className)..objectId = id;
+    parseObject.set('units', units);
+    final response = await parseObject.save();
+    if (!response.success) {
+      throw Exception('Failed to update item units');
+    }
+  }
+
   Future<void> deleteItem(String id) async {
     final parseObject = ParseObject(className)..objectId = id;
     final response = await parseObject.delete();
