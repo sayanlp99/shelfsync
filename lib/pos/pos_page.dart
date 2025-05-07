@@ -119,15 +119,22 @@ class _PosPageState extends State<PosPage> {
             ),
             ElevatedButton(
               onPressed: () async {
+                final scaffoldMessenger = ScaffoldMessenger.of(context);
                 try {
                   await controller.checkout();
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text("Order placed successfully")),
-                  );
+                  if (mounted) {
+                    scaffoldMessenger.showSnackBar(
+                      const SnackBar(
+                        content: Text("Order placed successfully"),
+                      ),
+                    );
+                  }
                 } catch (e) {
-                  ScaffoldMessenger.of(
-                    context,
-                  ).showSnackBar(SnackBar(content: Text("Error: $e")));
+                  if (mounted) {
+                    scaffoldMessenger.showSnackBar(
+                      SnackBar(content: Text("Error: $e")),
+                    );
+                  }
                 }
               },
               child: Text(
