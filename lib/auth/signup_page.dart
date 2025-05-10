@@ -49,32 +49,71 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Sign Up')),
+      appBar: AppBar(
+        title: const Text('Sign Up'),
+        centerTitle: true,
+        elevation: 1,
+      ),
       body: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(24.0),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            TextField(
-              controller: _usernameController,
-              decoration: const InputDecoration(labelText: 'Username'),
-            ),
-            SizedBox(height: 8),
-            TextField(
-              controller: _emailController,
-              decoration: const InputDecoration(labelText: 'Email'),
-            ),
-            SizedBox(height: 8),
-            TextField(
-              controller: _passwordController,
-              decoration: const InputDecoration(labelText: 'Password'),
-              obscureText: true,
+            Icon(
+              Icons.storefront,
+              size: 72.0,
+              color: Theme.of(context).colorScheme.primary,
             ),
             const SizedBox(height: 16),
+            TextFormField(
+              controller: _usernameController,
+              decoration: const InputDecoration(
+                labelText: 'Username',
+                border: OutlineInputBorder(),
+                contentPadding: EdgeInsets.symmetric(
+                  vertical: 16.0,
+                  horizontal: 12.0,
+                ),
+              ),
+            ),
+            const SizedBox(height: 16),
+            TextFormField(
+              controller: _emailController,
+              decoration: const InputDecoration(
+                labelText: 'Email',
+                border: OutlineInputBorder(),
+                contentPadding: EdgeInsets.symmetric(
+                  vertical: 16.0,
+                  horizontal: 12.0,
+                ),
+              ),
+            ),
+            const SizedBox(height: 16),
+            TextFormField(
+              controller: _passwordController,
+              decoration: const InputDecoration(
+                labelText: 'Password',
+                border: OutlineInputBorder(),
+                contentPadding: EdgeInsets.symmetric(
+                  vertical: 16.0,
+                  horizontal: 12.0,
+                ),
+              ),
+              obscureText: true,
+            ),
+            const SizedBox(height: 24),
             _isLoading
                 ? const Center(child: CircularProgressIndicator())
                 : ElevatedButton(
                   onPressed: _signUp,
-                  child: const Text('Sign Up'),
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(vertical: 16.0),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                  ),
+                  child: const Text('Sign Up', style: TextStyle(fontSize: 16)),
                 ),
           ],
         ),

@@ -30,8 +30,7 @@ class _MainPageState extends State<MainPage> {
     );
   }
 
-  final List<String> _titles = ['POS', 'Inventory'];
-  final List<Widget> _pages = [PosPage(), InventoryPage()];
+  final List<Widget> _pages = [const PosPage(), const InventoryPage()];
 
   void _onItemTapped(int index) {
     setState(() => _selectedIndex = index);
@@ -41,14 +40,21 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(_titles[_selectedIndex]),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
+        title: Row(
+          children: [
+            Icon(Icons.storefront),
+            SizedBox(width: 12),
+            Text("ShelfSync"),
+          ],
+        ),
+        elevation: 1,
         actions: [
           IconButton(
-            icon: const Icon(Icons.person),
+            icon: const Icon(Icons.logout_outlined),
+            tooltip: 'Logout',
             onPressed: () => _logout(context),
           ),
+          const SizedBox(width: 8),
         ],
       ),
       body: _pages[_selectedIndex],
@@ -56,14 +62,17 @@ class _MainPageState extends State<MainPage> {
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
         selectedItemColor: Theme.of(context).colorScheme.primary,
-        unselectedItemColor: Colors.grey,
+        unselectedItemColor:
+            Theme.of(context).colorScheme.onSurface.withValues(),
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.point_of_sale),
+            icon: Icon(Icons.point_of_sale_outlined),
             label: 'POS',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.inventory_2),
+            icon: Icon(Icons.inventory_2_outlined),
             label: 'Inventory',
           ),
         ],

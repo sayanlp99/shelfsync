@@ -5,7 +5,6 @@ import 'package:shelfsync/inventory/inventory_controller.dart';
 import 'package:shelfsync/main/main_page.dart';
 import 'package:shelfsync/pos/order_controller.dart';
 import 'package:shelfsync/pos/pos_controller.dart';
-import 'package:shelfsync/theme/shelf_sync_theme.dart';
 import 'auth/login_page.dart';
 
 void main() async {
@@ -50,9 +49,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'ShelfSync',
-      theme: lightTheme,
-      darkTheme: darkTheme,
-      themeMode: ThemeMode.system,
+      theme: ThemeData(
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
+      ),
       home: isLoggedIn ? const MainPage() : const LoginPage(),
     );
   }

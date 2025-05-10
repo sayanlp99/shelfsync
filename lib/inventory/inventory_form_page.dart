@@ -95,15 +95,17 @@ class _InventoryFormPageState extends State<InventoryFormPage> {
       appBar: AppBar(
         title: Text(isEdit ? 'Edit Inventory' : 'Add Inventory'),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back_outlined),
           onPressed: () => Navigator.pop(context),
         ),
+        elevation: 1,
+        centerTitle: true,
       ),
       body:
           _isSaving
               ? const Center(child: CircularProgressIndicator())
               : Padding(
-                padding: const EdgeInsets.all(16),
+                padding: const EdgeInsets.all(16.0),
                 child: Form(
                   key: _formKey,
                   child: ListView(
@@ -112,58 +114,107 @@ class _InventoryFormPageState extends State<InventoryFormPage> {
                         controller: _nameController,
                         decoration: const InputDecoration(
                           labelText: 'Product Name',
+                          border: OutlineInputBorder(),
+                          contentPadding: EdgeInsets.symmetric(
+                            vertical: 16.0,
+                            horizontal: 12.0,
+                          ),
                         ),
                         validator:
                             (val) =>
-                                val == null || val.isEmpty ? 'Required' : null,
+                                val == null || val.isEmpty
+                                    ? 'Product Name is required'
+                                    : null,
                       ),
-                      const SizedBox(height: 8),
+                      const SizedBox(height: 12),
                       TextFormField(
                         controller: _categoryController,
                         decoration: const InputDecoration(
                           labelText: 'Category',
+                          border: OutlineInputBorder(),
+                          contentPadding: EdgeInsets.symmetric(
+                            vertical: 16.0,
+                            horizontal: 12.0,
+                          ),
                         ),
                         validator:
                             (val) =>
-                                val == null || val.isEmpty ? 'Required' : null,
+                                val == null || val.isEmpty
+                                    ? 'Category is required'
+                                    : null,
                       ),
-                      const SizedBox(height: 8),
+                      const SizedBox(height: 12),
                       TextFormField(
                         controller: _priceController,
                         keyboardType: TextInputType.number,
-                        decoration: const InputDecoration(labelText: 'Price'),
+                        decoration: const InputDecoration(
+                          labelText: 'Price',
+                          border: OutlineInputBorder(),
+                          contentPadding: EdgeInsets.symmetric(
+                            vertical: 16.0,
+                            horizontal: 12.0,
+                          ),
+                        ),
                         validator:
                             (val) =>
-                                val == null || val.isEmpty ? 'Required' : null,
+                                val == null || val.isEmpty
+                                    ? 'Price is required'
+                                    : null,
                       ),
-                      const SizedBox(height: 8),
+                      const SizedBox(height: 12),
                       TextFormField(
                         controller: _unitsController,
                         keyboardType: TextInputType.number,
-                        decoration: const InputDecoration(labelText: 'Units'),
+                        decoration: const InputDecoration(
+                          labelText: 'Units',
+                          border: OutlineInputBorder(),
+                          contentPadding: EdgeInsets.symmetric(
+                            vertical: 16.0,
+                            horizontal: 12.0,
+                          ),
+                        ),
                         validator:
                             (val) =>
-                                val == null || val.isEmpty ? 'Required' : null,
+                                val == null || val.isEmpty
+                                    ? 'Units are required'
+                                    : null,
                       ),
-                      const SizedBox(height: 12),
-                      Row(
-                        children: [
-                          Text(
-                            "Date: ${DateFormat.yMMMd().format(_selectedDate)}",
-                            style: const TextStyle(fontSize: 16),
+                      const SizedBox(height: 20),
+                      InkWell(
+                        onTap: _pickDate,
+                        borderRadius: BorderRadius.circular(8.0),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 16.0,
+                            horizontal: 12.0,
                           ),
-                          const Spacer(),
-                          ElevatedButton.icon(
-                            icon: const Icon(Icons.calendar_today),
-                            label: const Text("Pick Date"),
-                            onPressed: _pickDate,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "Date: ${DateFormat.yMMMd().format(_selectedDate)}",
+                                style: const TextStyle(fontSize: 16),
+                              ),
+                              const Icon(Icons.calendar_today_outlined),
+                            ],
                           ),
-                        ],
+                        ),
                       ),
                       const SizedBox(height: 24),
                       ElevatedButton.icon(
-                        icon: Icon(isEdit ? Icons.save : Icons.add),
-                        label: Text(isEdit ? 'Update Item' : 'Add Item'),
+                        icon: Icon(
+                          isEdit ? Icons.save_outlined : Icons.add_outlined,
+                        ),
+                        label: Text(
+                          isEdit ? 'Update Item' : 'Add Item',
+                          style: const TextStyle(fontSize: 16),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(vertical: 16.0),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                        ),
                         onPressed: _submit,
                       ),
                     ],

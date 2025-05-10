@@ -23,12 +23,17 @@ class InventoryPage extends StatelessWidget {
                   final item = controller.items[index];
                   return ListTile(
                     title: Text(item.productName),
-                    subtitle: Text('${item.category} - ${item.units} pcs'),
+                    subtitle: Text(
+                      '${item.category} - ${item.units} pcs',
+                      style: const TextStyle(color: Colors.grey),
+                    ), // Use grey for less emphasis
                     trailing: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         IconButton(
-                          icon: const Icon(Icons.edit),
+                          icon: const Icon(
+                            Icons.edit_outlined,
+                          ), // Use outlined edit icon
                           onPressed: () async {
                             final result = await Navigator.push(
                               context,
@@ -42,7 +47,10 @@ class InventoryPage extends StatelessWidget {
                           },
                         ),
                         IconButton(
-                          icon: const Icon(Icons.delete),
+                          icon: const Icon(
+                            Icons.delete_outlined,
+                            color: Colors.redAccent,
+                          ), // Use outlined delete icon with color
                           onPressed: () {
                             controller.deleteItem(item.id);
                           },
