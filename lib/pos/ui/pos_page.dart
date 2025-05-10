@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shelfsync/pos/order_list_page.dart';
-import 'package:shelfsync/pos/pos_controller.dart';
-import 'package:shelfsync/pos/pos_model.dart';
+import 'package:shelfsync/pos/ui/order_list_page.dart';
+import 'package:shelfsync/pos/controller/pos_controller.dart';
+import 'package:shelfsync/pos/model/pos_model.dart';
 
 class PosPage extends StatefulWidget {
   const PosPage({super.key});

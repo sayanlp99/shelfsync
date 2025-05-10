@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 import 'package:provider/provider.dart';
-import 'package:shelfsync/inventory/inventory_controller.dart';
+import 'package:shelfsync/inventory/controller/inventory_controller.dart';
 import 'package:shelfsync/main/main_page.dart';
-import 'package:shelfsync/pos/order_controller.dart';
-import 'package:shelfsync/pos/pos_controller.dart';
-import 'auth/login_page.dart';
+import 'package:shelfsync/pos/controller/order_controller.dart';
+import 'package:shelfsync/pos/controller/pos_controller.dart';
+import 'auth/ui/login_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

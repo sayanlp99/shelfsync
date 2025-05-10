@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'inventory_model.dart';
-import 'inventory_service.dart';
+import '../model/inventory_model.dart';
+import '../service/inventory_service.dart';
 
 class InventoryController extends ChangeNotifier {
   final InventoryService _service = InventoryService();

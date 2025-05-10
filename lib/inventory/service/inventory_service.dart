@@ -1,5 +1,5 @@
 import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
-import 'inventory_model.dart';
+import '../model/inventory_model.dart';
 
 class InventoryService {
   final String className = 'Inventory';

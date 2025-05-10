@@ -1,5 +1,5 @@
 import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
-import 'package:shelfsync/pos/pos_model.dart';
+import 'package:shelfsync/pos/model/pos_model.dart';
 
 class PosService {
   Future<void> createOrder(PosOrder order) async {

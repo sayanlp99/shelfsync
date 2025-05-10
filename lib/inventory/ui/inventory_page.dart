@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shelfsync/inventory/inventory_form_page.dart';
-import 'inventory_controller.dart';
+import 'package:shelfsync/inventory/ui/inventory_form_page.dart';
+import '../controller/inventory_controller.dart';
 
 class InventoryPage extends StatelessWidget {
   const InventoryPage({super.key});

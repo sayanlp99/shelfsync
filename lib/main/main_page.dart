@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:shelfsync/auth/auth_controller.dart';
-import 'package:shelfsync/auth/login_page.dart';
-import 'package:shelfsync/inventory/inventory_page.dart';
-import 'package:shelfsync/pos/pos_page.dart';
+import 'package:shelfsync/auth/controller/auth_controller.dart';
+import 'package:shelfsync/auth/ui/login_page.dart';
+import 'package:shelfsync/inventory/ui/inventory_page.dart';
+import 'package:shelfsync/pos/ui/pos_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});

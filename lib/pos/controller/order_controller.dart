@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shelfsync/pos/pos_model.dart';
-import 'package:shelfsync/pos/pos_service.dart';
+import 'package:shelfsync/pos/model/pos_model.dart';
+import 'package:shelfsync/pos/service/pos_service.dart';
 
 class OrderController extends ChangeNotifier {
   final PosService _service = PosService();

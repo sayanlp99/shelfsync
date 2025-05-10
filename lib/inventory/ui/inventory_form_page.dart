@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-import 'package:shelfsync/inventory/inventory_controller.dart';
-import 'package:shelfsync/inventory/inventory_model.dart';
+import 'package:shelfsync/inventory/controller/inventory_controller.dart';
+import 'package:shelfsync/inventory/model/inventory_model.dart';
 
 class InventoryFormPage extends StatefulWidget {
   final InventoryItem? item;

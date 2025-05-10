@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:shelfsync/inventory/inventory_model.dart';
-import 'package:shelfsync/inventory/inventory_service.dart';
-import 'package:shelfsync/pos/pos_model.dart';
-import 'package:shelfsync/pos/pos_service.dart';
+import 'package:shelfsync/inventory/model/inventory_model.dart';
+import 'package:shelfsync/inventory/service/inventory_service.dart';
+import 'package:shelfsync/pos/model/pos_model.dart';
+import 'package:shelfsync/pos/service/pos_service.dart';
 
 class PosController extends ChangeNotifier {
   final InventoryService _inventoryService = InventoryService();
