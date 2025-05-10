@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shelfsync/main/main_page.dart';
+import 'package:shelfsync/tab/tab_page.dart';
 import '../controller/auth_controller.dart';
 import 'signup_page.dart';
 
@@ -27,7 +27,7 @@ class _LoginPageState extends State<LoginPage> {
         if (!mounted) return;
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (_) => const MainPage()),
+          MaterialPageRoute(builder: (_) => const TabPage()),
         );
       }
     } catch (e) {

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:shelfsync/inventory/controller/inventory_controller.dart';
-import 'package:shelfsync/main/main_page.dart';
+import 'package:shelfsync/tab/tab_page.dart';
 import 'package:shelfsync/pos/controller/order_controller.dart';
 import 'package:shelfsync/pos/controller/pos_controller.dart';
 import 'auth/ui/login_page.dart';
@@ -53,7 +53,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
       ),
-      home: isLoggedIn ? const MainPage() : const LoginPage(),
+      home: isLoggedIn ? const TabPage() : const LoginPage(),
     );
   }
 }

@@ -4,14 +4,14 @@ import 'package:shelfsync/auth/ui/login_page.dart';
 import 'package:shelfsync/inventory/ui/inventory_page.dart';
 import 'package:shelfsync/pos/ui/pos_page.dart';
 
-class MainPage extends StatefulWidget {
-  const MainPage({super.key});
+class TabPage extends StatefulWidget {
+  const TabPage({super.key});
 
   @override
-  State<MainPage> createState() => _MainPageState();
+  State<TabPage> createState() => _TabPageState();
 }
 
-class _MainPageState extends State<MainPage> {
+class _TabPageState extends State<TabPage> {
   int _selectedIndex = 0;
 
   void _logout(BuildContext context) async {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shelfsync/main/main_page.dart';
+import 'package:shelfsync/tab/tab_page.dart';
 import '../controller/auth_controller.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -27,7 +27,7 @@ class _SignUpPageState extends State<SignUpPage> {
       if (_authController.isAuthenticated && mounted) {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (_) => const MainPage()),
+          MaterialPageRoute(builder: (_) => const TabPage()),
         );
       }
     } catch (e) {
