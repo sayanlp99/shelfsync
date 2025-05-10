@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shelfsync/auth/auth_controller.dart';
 import 'package:shelfsync/auth/login_page.dart';
-import 'package:shelfsync/dashboard/dashboard_page.dart';
 import 'package:shelfsync/inventory/inventory_page.dart';
 import 'package:shelfsync/pos/pos_page.dart';
 
@@ -31,8 +30,8 @@ class _MainPageState extends State<MainPage> {
     );
   }
 
-  final List<String> _titles = ['Dashboard', 'POS', 'Inventory'];
-  final List<Widget> _pages = [DashboardPage(), PosPage(), InventoryPage()];
+  final List<String> _titles = ['POS', 'Inventory'];
+  final List<Widget> _pages = [PosPage(), InventoryPage()];
 
   void _onItemTapped(int index) {
     setState(() => _selectedIndex = index);
@@ -59,10 +58,6 @@ class _MainPageState extends State<MainPage> {
         selectedItemColor: Theme.of(context).colorScheme.primary,
         unselectedItemColor: Colors.grey,
         items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.dashboard),
-            label: 'Dashboard',
-          ),
           BottomNavigationBarItem(
             icon: Icon(Icons.point_of_sale),
             label: 'POS',
