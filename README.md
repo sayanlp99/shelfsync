@@ -57,8 +57,6 @@ Using Provider helps to avoid common performance issues associated with simpler 
 
 ## Getting Started
 
-(Add specific instructions on how to run the app if you intend for others to use or test it. This might include:)
-
 1.  Clone the repository.
 2.  Set up your Flutter environment.
 3.  Configure your Back4App application ID and client key in the appropriate files.
