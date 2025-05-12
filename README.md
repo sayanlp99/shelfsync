@@ -6,6 +6,11 @@ ShelfSync is a mobile application designed to simplify and streamline core opera
 
 This project is developed as part of an assignment, fulfilling requirements such as user authentication (login/sign up) and utilizing a specified backend service.
 
+## Links
+
+- https://docs.google.com/presentation/d/1BR49BXxiEKLVZObR4K0xZXOaNWLOQIi5EWlkrSx3yP4/edit?usp=sharing
+- https://www.youtube.com/watch?v=5B05684nais
+
 ## Key Features
 
 * **Secure Authentication:**
